@@ -23,7 +23,7 @@ public class CustomerDetailsController : ControllerBase {
         var customerService = new CustomerService(_hostingEnvironment);
         var customers = customerService.GetCustomers(customerParameters.num_records);
         var results = customerService.FilterCustomers(customers.ToList(), customerParameters);
-        results = customerService.PageAndOrder(customers.ToList(), customerParameters);
+        results = customerService.PageAndOrder(results.ToList(), customerParameters);
         return results;
     }
 }
